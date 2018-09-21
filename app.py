@@ -62,7 +62,8 @@ def callback():
 def handle_message(event):
 
     menus = get_menus()
-
+    text = ''
+    
     for menu in menus:
         text += str(menu) + "\n"
     print(text)
