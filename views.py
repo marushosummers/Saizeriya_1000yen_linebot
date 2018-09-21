@@ -43,9 +43,10 @@ def get_menus():
         salt += float(candidate[rand].salt)
 
     budget = 1000 - budget
-    menus.append("--------")
-    menus.append(budget)
-    menus.append(calorie)
-    menus.append(salt)
+    #menus.append("--------")
+    #menus.append(budget)
+    #menus.append(calorie)
+    #menus.append(salt)
+    print(menus)
     #return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
     return menus
