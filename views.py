@@ -14,12 +14,13 @@ def get_menus():
     # select first food
     while not menus:
         rand = random.randrange(0, db.session.query(Menu.id).count()) + 1
-        menus = db.session.query(Menu).filter(Menu.id==rand, Menu.price <= budget).all()
+        first_menus = db.session.query(Menu).filter(Menu.id==rand, Menu.price <= budget).all()
 
     # calc
-    budget -= int(menus[0].price)
-    calorie += int(menus[0].calorie)
-    salt += float(menus[0].salt)
+    menus.append(str(first_menus[0].name))
+    budget -= int(first_menus[0].price)
+    calorie += int(first_menus[0].calorie)
+    salt += float(first_menus[0].salt)
 
     while budget > 0:
 
@@ -34,12 +35,17 @@ def get_menus():
         rand = random.randrange(0, len(candidate))
 
         # add to list
-        menus.append(candidate[rand])
+        menus.append(str(candidate[rand].name))
 
         #calc
         budget -= int(candidate[rand].price)
         calorie += int(candidate[rand].calorie)
         salt += float(candidate[rand].salt)
 
+    budget = 1000 - budget
+    menus.append("--------")
+    menus.append(str(budget))
+    menus.append(str(calorie))
+    menus.append(str(salt))
     #return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
     return menus

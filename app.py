@@ -60,8 +60,11 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
     menus = get_menus()
-    menu = str(menus[0].name)
+
+    for menu in menus:
+        menu = str(menu) + "\n"
     print(menu)
     line_bot_api.reply_message(
         event.reply_token,
