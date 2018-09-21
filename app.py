@@ -61,21 +61,25 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    menus = get_menus()
-    text = ''
-    
-    for menu in menus:
-        text += str(menu) + "\n"
-    print(text)
+    if event.message.text == '今日のメニューは':
+        menus = get_menus()
+        text = ''
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=text.rstrip("\n")))
-    '''
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-        '''
+        for menu in menus:
+            text += str(menu) + "\n"
+        print(text)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text.rstrip("\n")))
+
+    else:
+        text = 'ガチャボタンを押してね'
+        print(text)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text)
 
 
 if __name__ == "__main__":
