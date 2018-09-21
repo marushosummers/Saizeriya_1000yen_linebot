@@ -1,6 +1,6 @@
 from flask import request, redirect, url_for, render_template, flash
-from sensai import app, db
-from sensai.models import Menu
+import app, db
+from models import Menu
 import random
 
 def get_menus():

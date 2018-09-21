@@ -16,11 +16,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 #app.config.from_object('config')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sensai/saizeriya.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///saizeriya.db'
 app.config['SECRET_KEY'] = '\xf4\x1b.\x04\xba\xfc-c\x1cg\x8eV\xe9\xa6w}\xa7\xfc*zQnq\xed'
 
 db = SQLAlchemy(app)
-from sensai.views import get_menus
+from views import get_menus
 
 # 環境変数からchannel_secret・channel_access_tokenを取得
 channel_secret = os.environ['LINE_CHANNEL_SECRET']
