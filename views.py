@@ -6,6 +6,7 @@ import random
 def get_menus():
 
     # params
+    first_menus = []
     menus = []
     budget = 1000
     calorie = 0
