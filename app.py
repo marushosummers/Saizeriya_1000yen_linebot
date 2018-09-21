@@ -12,7 +12,13 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
+app.config.from_object('sensai.config')
+
+db = SQLAlchemy(app)
+import sensai.views
 
 # 環境変数からchannel_secret・channel_access_tokenを取得
 channel_secret = os.environ['LINE_CHANNEL_SECRET']
@@ -52,12 +58,17 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    menus = get_menus()
+    menu = menus[0].name
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=menu))
+    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+        '''
+
 
 if __name__ == "__main__":
     app.run()

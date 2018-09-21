@@ -3,11 +3,6 @@ from sensai import app, db
 from sensai.models import Menu
 import random
 
-@app.route('/')
-def show_menus():
-    return render_template('show_menus.html')
-
-@app.route('/get', methods=['GET'])
 def get_menus():
 
     # params
@@ -46,6 +41,5 @@ def get_menus():
         calorie += int(candidate[rand].calorie)
         salt += float(candidate[rand].salt)
 
-    return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
-
-import random
+    #return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
+    return menus
