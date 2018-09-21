@@ -45,7 +45,7 @@ def get_menus():
 
     budget = 1000 - budget
     menus.append("--------")
-    result = "計" + str(budget) + "円\n" + str(calorie) + "kcal 塩分" + str(round(salt,1)) + "g"
+    result = "計 " + str(budget) + "円\n" + str(calorie) + "kcal 塩分" + str(round(salt,1)) + "g"
     menus.append(result)
     #return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
     return menus
