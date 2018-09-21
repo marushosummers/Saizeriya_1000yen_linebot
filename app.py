@@ -17,8 +17,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 #app.config.from_object('config')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///saizeriya.db'
-app.config['SECRET_KEY'] = '\xf4\x1b.\x04\xba\xfc-c\x1cg\x8eV\xe9\xa6w}\xa7\xfc*zQnq\xed'
-
+app.config['SECRET_KEY'] = 'secret_key'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 from views import get_menus
 
