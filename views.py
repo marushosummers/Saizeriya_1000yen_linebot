@@ -35,7 +35,7 @@ def get_menus():
         rand = random.randrange(0, len(candidate))
 
         # add to list
-        menus.append(str(candidate[rand].name))
+        menus.append((candidate[rand].name))
 
         #calc
         budget -= int(candidate[rand].price)
@@ -44,8 +44,8 @@ def get_menus():
 
     budget = 1000 - budget
     menus.append("--------")
-    menus.append(str(budget))
-    menus.append(str(calorie))
-    menus.append(str(salt))
+    menus.append(budget)
+    menus.append(calorie)
+    menus.append(salt)
     #return render_template('show_menus.html', menus=menus, budget=budget, calorie=calorie, salt=round(salt,1))
     return menus

@@ -64,11 +64,11 @@ def handle_message(event):
     menus = get_menus()
 
     for menu in menus:
-        menu = str(menu) + "\n"
+        text = str(menu) + "\n"
     print(menu)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=menu))
+        TextSendMessage(text=text))
     '''
     line_bot_api.reply_message(
         event.reply_token,
