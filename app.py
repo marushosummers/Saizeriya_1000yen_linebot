@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('sensai.config')
 
 db = SQLAlchemy(app)
-import sensai.views
+from sensai.views import get_menus
 
 # 環境変数からchannel_secret・channel_access_tokenを取得
 channel_secret = os.environ['LINE_CHANNEL_SECRET']
