@@ -62,10 +62,10 @@ def callback():
 def handle_message(event):
 
     menus = get_menus()
-
+    print(menus)
     for menu in menus:
         text = str(menu) + "\n"
-    print(menu)
+    print(text)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=text))
