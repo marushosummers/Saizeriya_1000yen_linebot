@@ -1,4 +1,4 @@
-from sensai import db
+from app import db
 from sqlalchemy import Column, Integer, String
 
 class Menu(db.Model):
