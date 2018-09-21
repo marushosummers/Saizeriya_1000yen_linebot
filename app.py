@@ -15,7 +15,7 @@ from linebot.models import (
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config.from_object('sensai.config')
+app.config.from_object('config')
 
 db = SQLAlchemy(app)
 from sensai.views import get_menus
