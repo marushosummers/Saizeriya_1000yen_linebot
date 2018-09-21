@@ -61,7 +61,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    if event.message.text == '今日のメニューは':
+    if ture:
         menus = get_menus()
         text = ''
 
