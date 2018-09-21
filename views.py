@@ -1,5 +1,5 @@
 from flask import request, redirect, url_for, render_template, flash
-import app, db
+from app import app, db
 from models import Menu
 import random
 
