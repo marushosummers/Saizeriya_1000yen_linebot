@@ -72,7 +72,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=text.rstrip("\n")))
 
     else:
-        text = 'ガチャボタンを押してね'
+        text = '本サービスは終了しました。'+ "\n" + 'Web版のご利用をお願いいたします。' + "\n" + 'https://saizeriya-1000yen.herokuapp.com/'
         print(text)
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=text))
 
